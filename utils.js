@@ -40,12 +40,13 @@ const createItem = (name, price) => {
 
 const getShoppingCart = () => {
   // should return the current state of shopping cart
-  return shoppingCart.length
+  return shoppingCart
 }
 
 const addItemToCart = (item) => {
   // should add item to shopping cart
   shoppingCart.push(item)
+  
 
 }
 
@@ -56,7 +57,7 @@ const getNumItemsInCart = () => {
 
 const removeItemFromCart = (item) => {
   // should remove item from shopping cart
-  for(let x=0; x<shoppingCart.length; x++){
+  for(let x=0; x<shoppingCart.length; x+=1){
     if(shoppingCart[x]==item){
       shoppingCart.splice(x,1)
     }

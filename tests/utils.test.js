@@ -63,14 +63,38 @@ it("Should create a new (object) Item with name and price", function() {
 })
 
 it("Should return an array containing all items in cart", function() {
-    
+  const item = utils.addItemToCart(utils.createItem("apple", 0.99))
+  const item2 = utils.addItemToCart(utils.createItem("pear", 0.80))
+  const item3 = utils.addItemToCart(utils.createItem("grape", 0.70))
+  const cart = utils.getShoppingCart()
+  expect(cart).to.deep.equal([{ name: "apple", price: 0.99, quantity: 1 }, 
+                         { name: "pear", price: 0.80, quantity: 1 }, 
+                         { name: "grape", price: 0.70, quantity: 1 }])
+
 })
 
-it("Should add a new item to the shopping cart")
+it("Should add a new item to the shopping cart", function() {
+  const item = utils.addItemToCart(utils.createItem("apple", 0.99))
+  const cart = utils.getNumItemsInCart()
+  expect(cart).to.equal(1)
+})
 
-it("Should return the number of items in the cart")
+it("Should return the number of items in the cart", function()  {
+  const item = utils.addItemToCart(utils.createItem("apple", 0.99))
+  const item2 = utils.addItemToCart(utils.createItem("pear", 0.80))
+  const item3 = utils.addItemToCart(utils.createItem("grape", 0.70))
+  const cart = utils.getNumItemsInCart()
+  expect(cart).to.equal(3)
+})
 
-it("Should remove items from cart")
+it("Should remove items from cart", function() {
+  const item = utils.addItemToCart(utils.createItem("apple", 0.99))
+  const item2 = utils.addItemToCart(utils.createItem("pear", 0.80))
+  const deleted =  utils.removeItemFromCart({ name: "apple", price: 0.99, quantity: 1 })
+  const cart = utils.getNumItemsInCart()
+  console.log('cart', utils.getShoppingCart())
+  expect(cart).to.equal(1)
+})
 
 // ========================================================
 // Stretch Challenges
