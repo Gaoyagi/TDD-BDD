@@ -57,12 +57,12 @@ const getNumItemsInCart = () => {
 
 const removeItemFromCart = (item) => {
   // should remove item from shopping cart
-  for(let x=0; x<shoppingCart.length; x+=1){
-    if(shoppingCart[x]==item){
-      shoppingCart.splice(x,1)
-    }
-  }
-
+  // for(let x=0; x<shoppingCart.length; x+=1){
+  //   if(shoppingCart[x]==item){
+  //     shoppingCart.splice(x,1)
+  //   }
+  // }
+  return shoppingCart.splice(shoppingCart.indexOf(item),1) //removes first occurance 
 }
 
 module.exports = {
